@@ -232,7 +232,7 @@ module internal ValueTypeSerializer =
 
     let writeGuid _ (writer : TextWriter) (value : obj) =
         let v : Guid = unbox value
-        writer.Write(v.ToString("N"))
+        writer.Write(v.ToString())
 
     let writeNullableGuid n writer (value : obj) =
         nullableWriter n writer value writeGuid
