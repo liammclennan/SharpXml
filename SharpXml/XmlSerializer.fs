@@ -129,7 +129,8 @@ type XmlSerializer() =
 
     /// Serialize the given object into a XML string
     static member SerializeToString<'T> (element : 'T) =
-        XmlSerializer.SerializeToString(element, typeof<'T>)
+        let t = element.GetType()
+        XmlSerializer.SerializeToString(element, t)
 
     /// Serialize the given object into XML output using the specified TextWriter
     static member SerializeToWriter (writer : TextWriter, element : obj, targetType : Type) =
